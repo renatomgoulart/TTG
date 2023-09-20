@@ -8,15 +8,42 @@ int main(){
     inicializaGrafo(logistica);
     inicializaGrafo(jogo);
 
-    switch(menuPrincipal()){
-        case 1:
-            
-            break;
-        case 2:
-            
-            break;
-        default:
-            return 0;
+    bool lmao = true;
+
+    while(lmao){
+        switch(menuPrincipal()){
+            case 1:
+                while(lmao){
+                    switch(menuLogistica()){
+                        case 1:
+                            insereFilial(filiaisNomes, filiais);
+                            break;
+                        case 2:
+                            insereMovimentacao(logistica, filiaisNomes, filiais);
+                            break;
+                        case 3:
+                            listaFiliaisProximas(filiaisNomes, logistica,filiais);
+                            break;
+                        case 4:
+                            atualizaMovimentacao(filiaisNomes, filiais, logistica); 
+                            break;
+                        case 5:
+                            removeFilial(filiaisNomes, filiais, logistica);
+                            break;
+                        default:
+                            lmao = true;
+                    }
+                    break;
+                }
+                
+                break;
+            case 2:
+                
+                break;
+            default:
+                return 0;
+        }
     }
+    
 
 }
