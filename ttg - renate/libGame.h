@@ -136,16 +136,12 @@ void atualizaTempo(DirectedGraph &grafo){
 
 }
 
-void removeLocal(){
-
-}
-
-void removeTempo(DirectedGraph &grafo){
+void removeLocal(DirectedGraph &grafo){
     string excluir;
 
-    test.printList();
+    grafo.printList();
 
-    cout<< "Digite a filial a ser excluida: ";
+    cout<< "Digite o local a ser excluida: ";
     fflush(stdin);
     getline(cin, excluir, '\n');
     // cin >> excluir;
@@ -153,15 +149,15 @@ void removeTempo(DirectedGraph &grafo){
     if(!grafo.rewindInsert(excluir))
         return;
 
-    test.deleteItem(excluir);
+    grafo.deleteItem(excluir);
     
     cout<< "Item excluido\n";
     system("pause");
 
 }
 
-void calculaTemposLocais(DirectedGraph grafo){
-     return test.sum();
+void calculaTemposLocais(DirectedGraph &grafo){
+     return grafo.sum();
 }
 
 #endif
