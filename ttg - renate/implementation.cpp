@@ -1,13 +1,15 @@
-#include "libJogo.h"
+#include "libGraph.h"
+#include "libGeneral.h"
+#include "libLogistics.h"
+#include "libGame.h"
 
 int main(){
-    float logistica[MAXTAM][MAXTAM], jogo[MAXTAM][MAXTAM];
-    int filiais = 0, pontos = 0;
-    string filiaisNomes[MAXTAM], filiaisPontos[MAXTAM];
+    NonDirectedGraph logistica;
+    DirectedGraph jogo;
 
-    inicializaGrafo(logistica);
-    inicializaGrafo(jogo);
-
+    logistica.start();
+    jogo.start();
+    
     bool lmao = true;
 
     while(lmao){
@@ -16,19 +18,23 @@ int main(){
                 while(lmao){
                     switch(menuLogistica()){
                         case 1:
-                            insereFilial(filiaisNomes, filiais);
+                            insereFilial(logistica);
                             break;
                         case 2:
-                            insereMovimentacao(logistica, filiaisNomes, filiais);
+                            insereMovimentacao(logistica);
                             break;
                         case 3:
-                            listaFiliaisProximas(filiaisNomes, logistica,filiais);
+                            listaFiliaisProximas(logistica);
                             break;
                         case 4:
-                            atualizaMovimentacao(filiaisNomes, filiais, logistica); 
+                            atualizaMovimentacao(logistica); 
                             break;
                         case 5:
-                            removeFilial(filiaisNomes, filiais, logistica);
+                            removeFilial(logistica);
+                            break;
+                        case 6:
+                            cout<< "Custo de movimentacao: "<< calculaCustoFiliais(logistica)<<endl;
+                            system("pause");
                             break;
                         default:
                             lmao = true;
